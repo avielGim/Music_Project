@@ -1,0 +1,8 @@
+.bar {
+    text-align: center;
+    height: 5px;
+    width: 300px;
+    background-color: rgb(14, 124, 221);
+    display: inline-block;
+    margin: 0 30px;
+}
