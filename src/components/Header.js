@@ -18,7 +18,7 @@ import song9 from '../Playlist/UUHO VOC.mp3'
 
 
 const Header = (props) => {
-    // mute is in Channel component
+    // mute state is individual and in Channel component
     const[play, setPlay] = useState(false);
     const[loop, setLoop] = useState(false);
 
@@ -40,11 +40,13 @@ const Header = (props) => {
 
     return (
         <div className='main'>
-
+            {/* Cursor display the cursor for all the channels */}
             <div className='content'>
                 <Cursor play={play}/>
             </div>
 
+            {/* go over all files audio and use the component Channel for each
+                also send the color separately*/}
             {channelsFile.map((value, index) => 
                 <div key={index}><Channel song={value}
                     isPlay={play}
@@ -53,7 +55,8 @@ const Header = (props) => {
                     setPlay={setPlay}/>
                     <br />
                 </div>)}
-
+            
+            {/* display and handle the state of the audio: play and state */}
             <div>
                 <Controls 
                     play={play}
@@ -61,7 +64,6 @@ const Header = (props) => {
                     handleMusic={handleMusic}
                     handleLoop={handleLoop}/>
             </div>
-
         </div>
     );
 }
