@@ -1,14 +1,26 @@
 import '../css/Controls.css'
 
+import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
+import { IoRepeat, IoReturnUpForwardOutline } from "react-icons/io5";
+
+
 const Controls = (props) => {
+    
     return(
         <div className='controler'>
-            <button className='play-btn'
-                onClick={props.handlePlay}>play</button>
-            <button className='stop-btn'
-                onClick={props.handleStop}>stop</button>
-            <button
-                onClick={props.handleLoop}>loop toggle</button>
+            {props.play? 
+                <button
+                    onClick={props.handleMusic}><FaPauseCircle size='3em' color='#ff5722'/>
+                </button>
+                : 
+                <button className='btn-button'
+                    onClick={props.handleMusic}><FaPlayCircle size='3em' color='#8bc34a'/>
+                </button>}
+            <button className='btn-button'
+                onClick={props.handleLoop}>
+                {props.loop? <IoRepeat size='2em' color='black'/>
+                    : <IoReturnUpForwardOutline size='2em' color='black'/>}
+            </button>
         </div>
     )
 }

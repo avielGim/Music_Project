@@ -1,0 +1,30 @@
+.work {
+    height: 377px;
+    width: 750px;
+    margin: 5px 70px;
+}
+
+.inWork {
+    height: 100%;
+    width: 100%;
+    animation-name: right-left;
+    animation-duration: 17.6s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear; 
+}
+
+.inInWork {
+    height: 100%;
+    width: 1px;
+    background-color: red;
+}
+
+@keyframes right-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

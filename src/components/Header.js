@@ -1,7 +1,10 @@
-import '../App.css';
-import Poem from './Poem';
+import '../css/Header.css'
+
+import Cursor from './Cursor';
+import Channel from './Channel';
+import Controls from './Controls';
+
 import { useState } from 'react';
-import Controls from '../components/Controls';
 
 import song1 from '../Playlist/_tambourine_shake_higher.mp3'
 import song2 from '../Playlist/ALL TRACK.mp3'
@@ -15,75 +18,61 @@ import song9 from '../Playlist/UUHO VOC.mp3'
 
 
 const Header = (props) => {
-  // mute is in Poem component
-    const[play, setPlay] = useState(false)
-    const[loop, setLoop] = useState(false)
+    // mute is in Channel component
+    const[play, setPlay] = useState(false);
+    const[loop, setLoop] = useState(false);
 
-//   const allPoems = {
-//       song1: 'blue', song2: 'blue',song3: 'blue',song4: 'blue',song5: 'blue',song6: 'blue',song7: 'blue',song8: 'blue',song9: 'blue'}
-  
-    const handlePlay = () => {
-        setPlay(true)
-    }
+    const channelsColor = ['#f44336', '#e91e63', '#9c27b0', 
+                           '#673ab7', '#3f51b5', '#2196f3', 
+                           '#03a9f4', '#00bcd4', '#009688'];
+    
+    const channelsFile = [song1, song2, song3, 
+                          song4, song5, song6, 
+                          song7, song8, song9];
 
-    const handleStop = () => {
-        setPlay(false)
+    const handleMusic = () => {
+        setPlay(!play);
     }
 
     const handleLoop = () => {
-        setLoop(!loop)
+        setLoop(!loop);
     }
 
-  return (
-    <div className="App">
-        <h1>cursor</h1>
-        {/* {allPoems.map((value) => 
-            <Poem song={value} isPlay={play} isLoop={loop} backColor={'blue'}/>)} */}
-        <Poem song={song1}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'blue'}/>
-        <Poem song={song2}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'green'}/>
-        <Poem song={song3}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'yellow'}/>
-        <Poem song={song4}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'purple'}/>
-        <Poem song={song5}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'black'}/>
-        <Poem song={song6}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'red'}/>
-        <Poem song={song7}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'orange'}/>
-        <Poem song={song8}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'brown'}/>
-        <Poem song={song9}
-            isPlay={play}
-            isLoop={loop}
-            backColor={'gray'}/>
-        <br />
-        <br />
-        <Controls 
-            play={play}
-            handlePlay={handlePlay}
-            handleStop={handleStop}
-            handleLoop={handleLoop}/>
-    </div>
-  );
+    return (
+        <div className='main'>
+
+            <div className='content'>
+                <Cursor play={play}/>
+            </div>
+
+            {channelsFile.map((value, index) => 
+                <div key={index}><Channel song={value}
+                    isPlay={play}
+                    isLoop={loop}
+                    backColor={channelsColor[index]}
+                    setPlay={setPlay}/>
+                    <br />
+                </div>)}
+
+            <div>
+                <Controls 
+                    play={play}
+                    loop={loop}
+                    handleMusic={handleMusic}
+                    handleLoop={handleLoop}/>
+            </div>
+
+        </div>
+    );
 }
 
 export default Header;
+
+
+//   ['#f44336', '#e91e63', '#9c27b0', 
+//    '#673ab7', '#3f51b5', '#2196f3', 
+//    '#03a9f4', '#00bcd4', '#009688']
+
+//    '#4caf50', '#8bc34a', '#cddc39', 
+//    '#ffeb3b', '#ffc107', '#ff9800', 
+//    '#ff5722', '#795548', '#607d8b']

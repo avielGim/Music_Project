@@ -1,0 +1,11 @@
+.main {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.content {
+    margin-top: 50px;
+    width: 5;
+    height: 0;
+    position: relative;
+}
