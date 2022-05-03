@@ -45,7 +45,7 @@ const Channel = (props) => {
                 {mute? <FaVolumeMute />: <FaVolumeUp color='#8bc34a'/>}</button>
             </div>
             <label className='bar-channel'
-                style={{ backgroundColor: props.backColor }}></label>
+                style={{ backgroundColor: props.backColor }}>{props.nameAudio}</label>
         </div>
     )
 }

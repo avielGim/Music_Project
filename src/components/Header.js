@@ -26,6 +26,10 @@ const Header = () => {
                            '#673ab7', '#3f51b5', '#2196f3', 
                            '#03a9f4', '#00bcd4', '#009688'];
     
+    const channelsName = ['B VOC',' DRUMS', 'LEAD 1', 'JIBRISH',
+                          'HIGH VOC', 'UUHO VOC', 'ALL TRACK',
+                          'HE HE VOC', 'SHAKE HIGHER'];
+
     const channelsFile = [song1, song2, song3, 
                           song4, song5, song6, 
                           song7, song8, song9];
@@ -50,6 +54,7 @@ const Header = () => {
             {channelsFile.map((value, index) => 
                 <div key={index}>
                     <Channel song={value}
+                        nameAudio={channelsName[index]}
                         isPlay={play}
                         isLoop={loop}
                         backColor={channelsColor[index]}
