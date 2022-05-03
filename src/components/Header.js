@@ -30,11 +30,11 @@ const Header = () => {
                           song4, song5, song6, 
                           song7, song8, song9];
 
-    const handleMusic = () => {
+    const handleMusic = async () => {
         setPlay(!play);
     }
 
-    const handleLoop = () => {
+    const handleLoop = async () => {
         setLoop(!loop);
     }
 
