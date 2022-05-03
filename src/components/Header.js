@@ -6,18 +6,18 @@ import Controls from './Controls';
 
 import { useState } from 'react';
 
-import song1 from '../Playlist/_tambourine_shake_higher.mp3'
-import song2 from '../Playlist/ALL TRACK.mp3'
-import song3 from '../Playlist/B VOC.mp3'
-import song4 from '../Playlist/DRUMS.mp3'
-import song5 from '../Playlist/HE HE VOC.mp3'
-import song6 from '../Playlist/HIGH VOC.mp3'
-import song7 from '../Playlist/JIBRISH.mp3'
-import song8 from '../Playlist/LEAD 1.mp3'
-import song9 from '../Playlist/UUHO VOC.mp3'
+import song1 from '../Playlist/B VOC.mp3'
+import song2 from '../Playlist/DRUMS.mp3'
+import song3 from '../Playlist/LEAD 1.mp3'
+import song4 from '../Playlist/JIBRISH.mp3'
+import song5 from '../Playlist/HIGH VOC.mp3'
+import song6 from '../Playlist/UUHO VOC.mp3'
+import song7 from '../Playlist/ALL TRACK.mp3'
+import song8 from '../Playlist/HE HE VOC.mp3'
+import song9 from '../Playlist/_tambourine_shake_higher.mp3'
 
 
-const Header = (props) => {
+const Header = () => {
     // mute state is individual and in Channel component
     const[play, setPlay] = useState(false);
     const[loop, setLoop] = useState(false);
@@ -48,11 +48,12 @@ const Header = (props) => {
             {/* go over all files audio and use the component Channel for each
                 also send the color separately*/}
             {channelsFile.map((value, index) => 
-                <div key={index}><Channel song={value}
-                    isPlay={play}
-                    isLoop={loop}
-                    backColor={channelsColor[index]}
-                    setPlay={setPlay}/>
+                <div key={index}>
+                    <Channel song={value}
+                        isPlay={play}
+                        isLoop={loop}
+                        backColor={channelsColor[index]}
+                        setPlay={setPlay}/>
                     <br />
                 </div>)}
             

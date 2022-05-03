@@ -30,7 +30,7 @@ const Channel = (props) => {
         return () => {
           audio.removeEventListener('ended', () => setPlay(false));
         };
-      }, []);
+      }, [audio, setPlay]);
 
     // when the button mute pressed
     const handleMute = () => {
@@ -40,10 +40,11 @@ const Channel = (props) => {
 
     return(
         <div>
-            <div style={{float: 'left'}}><button className='btn' onClick={handleMute}>
+            <div style={{float: 'left'}}><button className='btn-mute' onClick={handleMute}>
                 {/* mute state -> FaVolumeMute, volume state  -> FaVolumeUp */}
-                {mute? <FaVolumeMute />: <FaVolumeUp color='#8bc34a'/>}</button></div>
-            <label className='bar'
+                {mute? <FaVolumeMute />: <FaVolumeUp color='#8bc34a'/>}</button>
+            </div>
+            <label className='bar-channel'
                 style={{ backgroundColor: props.backColor }}></label>
         </div>
     )
